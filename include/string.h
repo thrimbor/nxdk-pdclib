@@ -220,4 +220,8 @@ _PDCLIB_PUBLIC size_t strnlen_s( const char * s, size_t maxsize );
 }
 #endif
 
+#ifdef _PDCLIB_EXTEND_STRING_H
+#include _PDCLIB_EXTEND_STRING_H
+#endif
+
 #endif

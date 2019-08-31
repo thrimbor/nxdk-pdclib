@@ -104,4 +104,8 @@ _PDCLIB_PUBLIC struct lconv * localeconv( void );
 }
 #endif
 
+#ifdef _PDCLIB_EXTEND_LOCALE_H
+#include _PDCLIB_EXTEND_LOCALE_H
+#endif
+
 #endif

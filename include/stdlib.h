@@ -280,4 +280,8 @@ _PDCLIB_PUBLIC errno_t qsort_s( void * base, rsize_t nmemb, rsize_t size, int (*
 }
 #endif
 
+#ifdef _PDCLIB_EXTEND_STDLIB_H
+#include _PDCLIB_EXTEND_STDLIB_H
+#endif
+
 #endif
