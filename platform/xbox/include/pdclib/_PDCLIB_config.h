@@ -554,5 +554,8 @@ typedef int _PDCLIB_once_flag;
 #define _PDCLIB_ONCE_FLAG_INIT 0
 #define _PDCLIB_TSS_DTOR_ITERATIONS 4
 
+#define _PDCLIB_EXTEND_LOCALE_H <_locale.h>
+#define _PDCLIB_EXTEND_STRING_H <_string.h>
+#define _PDCLIB_EXTEND_STDLIB_H <_stdlib.h>
 
 #endif
