@@ -29,8 +29,6 @@ void _PDCLIB_xbox_libc_deinit ()
 
 static int main_wrapper ()
 {
-    _PDCLIB_xbox_tss_init();
-
     _PDCLIB_xbox_libc_init();
 
     _PDCLIB_xbox_run_crt_initializers();
