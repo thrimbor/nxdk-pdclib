@@ -4,5 +4,6 @@
 
 _Noreturn void thrd_exit (int res)
 {
-    PsTerminateSystemThread(res);
+    ExitThread((DWORD)res);
+    while (1); // Suppresses noreturn warning
 }
