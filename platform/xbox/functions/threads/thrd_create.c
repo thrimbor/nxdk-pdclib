@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <windows.h>
+#include <pdclib/_PDCLIB_xbox_tss.h>
 
 struct thread_info_t {
     thrd_start_t func;
@@ -10,7 +11,6 @@ struct thread_info_t {
 
 static __stdcall DWORD thread_wrapper (LPVOID lpThreadParameter)
 {
-    debugPrint("%s: %d\n", __FILE__, __LINE__);
     struct thread_info_t *thread_info = (struct thread_info_t *)lpThreadParameter;
 
     thrd_start_t func = thread_info->func;
@@ -18,7 +18,11 @@ static __stdcall DWORD thread_wrapper (LPVOID lpThreadParameter)
 
     free(lpThreadParameter);
 
-    return (DWORD)func(arg);
+    int res = func(arg);
+
+    _PDCLIB_xbox_tss_cleanup();
+
+    return (DWORD)res;
 }
 
 int thrd_create (thrd_t *thr, thrd_start_t func, void *arg)
